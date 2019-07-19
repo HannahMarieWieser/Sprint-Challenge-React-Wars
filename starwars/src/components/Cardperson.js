@@ -5,11 +5,15 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import { purple } from '@material-ui/core/colors';
 
 const useStyles = makeStyles({
   card: {
     minWidth: 275,
-    maxWidth: 150
+    maxWidth: 180,
+    marginBottom: 20,
+    margin: 'auto'
+
   },
   bullet: {
     display: 'inline-block',
@@ -18,7 +22,9 @@ const useStyles = makeStyles({
   },
   title: {
     fontSize: 14,
-  },
+    color: 'purple'
+
+},
   pos: {
     marginBottom: 12,
   },
