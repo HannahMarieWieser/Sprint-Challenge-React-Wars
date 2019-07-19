@@ -27,9 +27,9 @@ function App(){
         const persObj = element.data;
         console.log("persObj", persObj)
 
-        setStarw(previousState => {
-          return [...previousState, persObj];
-        });
+        // setStarw(previousState => {
+        //   return [...previousState, persObj];
+        // });
                 
       });
 
@@ -41,23 +41,15 @@ function App(){
   return (
     <div className="App">
       <h1 className="Header">React Wars</h1>
+      
+      {starw.map((item) =>
 
-      <SimpleCard
-        //tileData={starw}
-        // name = {persObj.name}
-        // birth_year = {persObj.birth_year}
-        // gender = {persObj.gender}
-        // skin_color = {persObj.skin_color}
-        // height = {persObj.height}
-        // mass = {persObj.mass}
-        // eyecolor = {persObj.eyecolor}
-        // homeworld = {persObj.homeworld}
-        // species = {persObj.species}
-        // starships = {persObj.starships}
-        // vehicles = {persObj.vehicles}
+        <SimpleCard
+          tileData={item.data}
+        />
+        
+      )};
       
-      
-      />
 
     </div>
   );

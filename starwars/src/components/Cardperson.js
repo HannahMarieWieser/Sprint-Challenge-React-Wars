@@ -9,6 +9,7 @@ import Typography from '@material-ui/core/Typography';
 const useStyles = makeStyles({
   card: {
     minWidth: 275,
+    maxWidth: 150
   },
   bullet: {
     display: 'inline-block',
@@ -23,49 +24,38 @@ const useStyles = makeStyles({
   },
 });
 
-function SimpleCard({name,birth_year,gender,skin_color,height,mass,eyecolor,homeworld,species, starships, vehicles}) {
+function SimpleCard({tileData}) {
   const classes = useStyles();
   const bull = <span className={classes.bullet}>•</span>;
 
   return (
     <Card className={classes.card}>
-      <CardContent>
-        {/* <Typography className={classes.title} color="textSecondary" gutterBottom>
-          Word of the Day
-        </Typography> */}
 
-        <Typography variant="h5" component="h2">
-          {name}
-        </Typography>
+        <CardContent>
 
-        <Typography ariant="body2" component="p">
-          Stats:
-          <br/>
-          {birth_year}{bull}{gender}{bull}{skin_color}
-          <br/>
-          {height}{bull}{mass}{bull}{eyecolor}
-        </Typography>
+            <Typography variant="h5" component="h2">
+            {tileData.name}
+            </Typography>
+
+            <Typography ariant="body2" component="p">
+            Stats:
+            <br/>
+            Born: {tileData.birth_year} {bull} Gender: {tileData.gender}
+            <br/>
+            Height: {tileData.height} {bull} Mass: {tileData.mass} {bull} Eyecolor: {tileData.eye_color}
+            </Typography>
 
 
-        <Typography variant="body2" component="p">
-           Origin:
-           <br/>
-          {species}
-          <br />
-          {homeworld}
-        </Typography>
+            <Typography variant="body2" component="p">
+            Origin:
+            <br/>
+            Species: {tileData.species}
+            <br />
+            Homeworld: {tileData.homeworld}
+            </Typography>
 
-        <Typography variant="body2" component="p">
-          Vehicles:
-          <br />
-          {starships}
-          <br />
-          {vehicles}
-        </Typography>
-
-
-      </CardContent>
-
+        </CardContent>
+      
       
     </Card>
   );
