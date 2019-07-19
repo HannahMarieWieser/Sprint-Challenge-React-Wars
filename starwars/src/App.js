@@ -17,16 +17,15 @@ function App(){
 
   useEffect(() => {
     //loop through 10 objects
-    const counter = 11;
+    const counter = 10;
 
     for (let i = 0; i< counter; i++){
       axios
-      .get(`http https://swapi.co/api/people/${1+i}`)
+      .get(`https://swapi.co/api/people/${1+i}`)
 
       .then( element => {
-        console.log(element)
         const persObj = element.data;
-        console.log(persObj)
+        console.log("persObj", persObj)
 
         setStarw(previousState => {
           return [...previousState, persObj];
@@ -44,17 +43,18 @@ function App(){
       <h1 className="Header">React Wars</h1>
 
       <SimpleCard
-        name = {persObj.name}
-        birth_year = {persObj.birth_year}
-        gender = {persObj.gender}
-        skin_color = {persObj.skin_color}
-        height = {persObj.height}
-        mass = {persObj.mass}
-        eyecolor = {persObj.eyecolor}
-        homeworld = {persObj.homeworld}
-        species = {persObj.species}
-        starships = {persObj.starships}
-        vehicles = {persObj.vehicles}
+        //tileData={starw}
+        // name = {persObj.name}
+        // birth_year = {persObj.birth_year}
+        // gender = {persObj.gender}
+        // skin_color = {persObj.skin_color}
+        // height = {persObj.height}
+        // mass = {persObj.mass}
+        // eyecolor = {persObj.eyecolor}
+        // homeworld = {persObj.homeworld}
+        // species = {persObj.species}
+        // starships = {persObj.starships}
+        // vehicles = {persObj.vehicles}
       
       
       />
