@@ -24,7 +24,9 @@ function App(){
       .get(`http https://swapi.co/api/people/${1+i}`)
 
       .then( element => {
+        console.log(element)
         const persObj = element.data;
+        console.log(persObj)
 
         setStarw(previousState => {
           return [...previousState, persObj];
