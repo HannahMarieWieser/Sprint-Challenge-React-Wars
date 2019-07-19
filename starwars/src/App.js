@@ -4,6 +4,7 @@ import axios from 'axios';
 import './App.css';
 
 import SimpleCard from './components/Cardperson'
+import { object } from 'prop-types';
 
 // Try to think through what state you'll need for this app before starting. Then build out
   // the state properties here.
@@ -12,8 +13,10 @@ import SimpleCard from './components/Cardperson'
   // side effect in a component, you want to think about which state and/or props it should
   // sync up with, if any.
 
-function App(){
-  const [starw, setStarw] = useState([]);
+
+/*
+ const [starw, setStarw] = useState([]);
+ 
 
   useEffect(() => {
     //loop through 10 objects
@@ -21,38 +24,70 @@ function App(){
 
     for (let i = 0; i< counter; i++){
       axios
-      .get(`https://swapi.co/api/people/${1+i}`)
+      .get(`https://swapi.co/api/people/${1+i}/`)
 
       .then( element => {
-        const persObj = element.data;
-        console.log("persObj", persObj)
+        setStarw(element.data);
+        console.log("personj/element", element.data)
 
-        // setStarw(previousState => {
-        //   return [...previousState, persObj];
-        // });
-                
+        console.log ('starw', starw)
+
+       
       });
-
-
     }
  
   }, []);
+*/ 
+  
 
-  return (
-    <div className="App">
-      <h1 className="Header">React Wars</h1>
-      
-      {starw.map((item) =>
 
-        <SimpleCard
-          tileData={item.data}
-        />
+
+
+function App(){
+  const [starw, setStarw] = useState()
+
+  useEffect(() => {
+  
+    axios.get('https://henry-mock-swapi.herokuapp.com/api')
+      .then( element => {
+        setStarw(element.data.results)
+        console.log('element', element.data.results)
+
         
-      )};
+              
+      });
+         
       
+  }, []);
+  console.log("starw", starw)
 
-    </div>
-  );
+  if(!starw) {
+    return <h1>loading</h1>
+  }
+
+  else{
+    return (
+        <div className="App">
+          <h1 className="Header">React Wars</h1>
+          
+            {starw.map((person) => <SimpleCard tileData={person}/>)} 
+
+            {/* <SimpleCard
+              tileData={starw}
+
+      
+            /> */}
+            
+
+          
+
+        </div>
+      );
+
+
+  }
+ 
 }
+
 
 export default App;

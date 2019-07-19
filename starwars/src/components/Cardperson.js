@@ -24,7 +24,8 @@ const useStyles = makeStyles({
   },
 });
 
-function SimpleCard({tileData}) {
+function SimpleCard(props) {
+  console.log("simplecard props", props)
   const classes = useStyles();
   const bull = <span className={classes.bullet}>•</span>;
 
@@ -34,24 +35,24 @@ function SimpleCard({tileData}) {
         <CardContent>
 
             <Typography variant="h5" component="h2">
-            {tileData.name}
+            {props.tileData.name}
             </Typography>
 
             <Typography ariant="body2" component="p">
             Stats:
             <br/>
-            Born: {tileData.birth_year} {bull} Gender: {tileData.gender}
+            Born: {props.tileData.birth_year} {bull} Gender: {props.tileData.gender}
             <br/>
-            Height: {tileData.height} {bull} Mass: {tileData.mass} {bull} Eyecolor: {tileData.eye_color}
+            Height: {props.tileData.height} {bull} Mass: {props.tileData.mass} {bull} Eyecolor: {props.tileData.eye_color}
             </Typography>
 
 
             <Typography variant="body2" component="p">
             Origin:
             <br/>
-            Species: {tileData.species}
+            Species: {props.tileData.species}
             <br />
-            Homeworld: {tileData.homeworld}
+            Homeworld: {props.tileData.homeworld}
             </Typography>
 
         </CardContent>
